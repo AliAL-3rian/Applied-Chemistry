@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>حاسبة المعدل التراكمي</title>
+    <meta name="description" content="احسب معدلك الدراسي بسهولة ودقة — GPA Calculator" />
+    <link rel="icon" href="./assets/logo.png" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet" />
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <!-- Styles (ترتيب مهم) -->
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/theme.css" />
+    <link rel="stylesheet" href="./css/layout.css" />
+    <link rel="stylesheet" href="./css/components.css" />
+    <link rel="stylesheet" href="./css/animations.css" />
+    <link rel="stylesheet" href="./css/responsive.css" />
+</head>
+
+<body class="light-mode">
+
+<!-- ══════════════════════════════════════════
+     HEADER
+══════════════════════════════════════════ -->
+<header class="sticky-header">
+    <div class="header-container">
+
+        <!-- Logo + Title -->
+        <div class="page-title">
+            <img src="./assets/logo.png" alt="Logo" class="logo-icon"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+            <div class="title-icon" style="display:none">
+                <i class="fas fa-calculator"></i>
+            </div>
+            <div class="text-container">
+                <h1 data-t="title">حاسبة المعدل التراكمي</h1>
+                <p data-t="description">احسب معدلك الدراسي بسهولة ودقة</p>
+            </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="header-actions">
+
+            <!-- Theme -->
+            <button id="theme-toggle" class="icon-button" aria-label="تبديل الوضع">
+                <i class="fas fa-moon" id="theme-icon"></i>
+            </button>
+
+            <!-- Language -->
+            <div class="language-dropdown">
+                <button id="language-button" class="icon-button" aria-label="اللغة">
+                    <i class="fas fa-globe"></i>
+                    <span id="current-language">العربية</span>
+                </button>
+                <div class="dropdown-menu">
+                    <button class="dropdown-item" data-lang="ar">
+                        <i class="fas fa-check" style="opacity:0" id="lang-ar-check"></i> العربية
+                    </button>
+                    <button class="dropdown-item" data-lang="en">
+                        <i class="fas fa-check" style="opacity:0" id="lang-en-check"></i> English
+                    </button>
+                </div>
+            </div>
+
+            <!-- Grading System -->
+            <div class="grading-system-dropdown">
+                <button id="grading-system-button" class="icon-button" aria-label="نظام الدرجات">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span id="current-grading-system">نظام 4.0</span>
+                </button>
+                <div class="dropdown-menu">
+                    <button class="dropdown-item" data-grading="4.0">نظام 4.0</button>
+                    <button class="dropdown-item" data-grading="5.0">نظام 5.0</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</header>
+
+<!-- ══════════════════════════════════════════
+     MAIN
+══════════════════════════════════════════ -->
+<main class="container">
+
+    <!-- التراكمي السابق -->
+    <section id="previous-cumulative-container"></section>
+
+    <!-- التراكمي الكلي -->
+    <section id="cumulative-term-container"></section>
+
+    <!-- الفصول الدراسية -->
+    <section id="terms-container"></section>
+
+    <!-- مقارنة الفصول (يُعبأ ديناميكياً) -->
+    <section id="comparison-container"></section>
+
+    <!-- الإحصائيات والرسم البياني -->
+    <section id="statistics-section" class="statistics-section fade-in" style="display:none">
+        <div class="stats-header">
+            <h2>
+                <i class="fas fa-chart-area" style="color:var(--primary);margin-inline-end:8px"></i>
+                <span data-t="statistics">إحصائيات المعدل</span>
+            </h2>
+        </div>
+        <div class="chart-wrapper">
+            <canvas id="gpa-chart"></canvas>
+        </div>
+        <div id="stats-cards" style="margin-top:16px"></div>
+    </section>
+
+    <!-- نصائح -->
+    <section class="tips-section fade-in">
+        <h2 data-t="tips">نصائح لتحسين معدلك</h2>
+        <ul>
+            <li data-t="tip1">ركّز على المواد ذات الساعات الأعلى لأنها تؤثر بشكل أكبر على المعدل.</li>
+            <li data-t="tip2">حاول تحسين درجاتك في المواد التي حصلت فيها على تقدير منخفض.</li>
+            <li data-t="tip3">نظّم وقتك جيداً لمراجعة جميع المواد قبل الامتحانات.</li>
+        </ul>
+    </section>
+
+    <!-- أزرار الإجراءات -->
+    <div class="btn-container">
+        <button id="add-term" class="btn add-more">
+            <i class="fas fa-plus"></i>
+            <span data-t="addTerm">إضافة فصل دراسي</span>
+        </button>
+        <button id="export-pdf" class="btn btn-info">
+            <i class="fas fa-file-pdf"></i>
+            <span data-t="exportPDF">تصدير PDF</span>
+        </button>
+        <button id="export-excel" class="btn btn-success">
+            <i class="fas fa-file-excel"></i>
+            <span data-t="exportExcel">تصدير Excel</span>
+        </button>
+        <button id="share-results" class="btn btn-warning">
+            <i class="fas fa-share-alt"></i>
+            <span data-t="share">مشاركة</span>
+        </button>
+        <button id="reset-data" class="btn btn-danger">
+            <i class="fas fa-undo"></i>
+            <span data-t="reset">إعادة تعيين</span>
+        </button>
+    </div>
+
+</main>
+
+<!-- ══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════ -->
+<footer>
+    <p>
+        &copy; 2021–2026 جميع الحقوق محفوظة ·
+        <a href="https://www.facebook.com/alial3rian" target="_blank" rel="noopener">Ali Al-3rian</a>
+        · v<span id="app-version">2.0</span>
+    </p>
+</footer>
+
+<!-- ══════════════════════════════════════════
+     SCRIPTS — بالترتيب الصحيح
+══════════════════════════════════════════ -->
+
+<!-- Libraries -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+<!-- App Modules (ترتيب التبعيات مهم) -->
+<script src="./js/config.js"></script>
+<script src="./js/state.js"></script>
+<script src="./js/calculations.js"></script>
+<script src="./js/validation.js"></script>
+<script src="./js/ui.js"></script>
+<script src="./js/statistics.js"></script>
+<script src="./js/storage.js"></script>
+<script src="./js/main.js"></script>
+
+</body>
+</html>
