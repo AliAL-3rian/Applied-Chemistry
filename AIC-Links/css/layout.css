@@ -58,7 +58,7 @@ header {
     max-width: 1024px;
     margin: 32px auto;
     padding: 0 16px;
-    flex: 1;
+    /* flex: 1; */
 }
 
 /* ── Intro / Hero ── */
