@@ -1,0 +1,49 @@
+/* ============================================================
+   responsive.css — Breakpoints & Mobile Adjustments
+   ============================================================ */
+
+/* ── Tablet ── */
+@media (max-width: 900px) {
+    .header-container { flex-wrap: wrap; gap: 10px; }
+    .text-container h1 { font-size: 18px; }
+    .banner-container { gap: 10px; }
+}
+
+/* ── Mobile ── */
+@media (max-width: 640px) {
+    .header-container { flex-direction: column; align-items: flex-start; }
+    .header-actions   { align-self: flex-end; }
+    .text-container h1 { font-size: 17px; }
+    .text-container p  { font-size: 12px; }
+
+    .container { padding: 0 12px; gap: 14px; }
+
+    .banner-bar  { padding: 16px; }
+    .banner-box  { min-width: 100%; }
+    .banner-container { flex-direction: column; }
+
+    .btn-container { flex-direction: column; align-items: stretch; }
+    .btn-container .btn { justify-content: center; }
+
+    .btn, .icon-button { padding: 9px 14px; font-size: 13px; }
+
+    .term-table { font-size: 12px; }
+    .term-table th, .term-table td { padding: 7px 6px; }
+
+    .form-control { font-size: 12px; padding: 7px 8px; }
+
+    .toast {
+        bottom: 16px;
+        inset-inline-end: 12px;
+        inset-inline-start: 12px;
+        max-width: unset;
+    }
+
+    .banner-Inputbox input { max-width: 100%; }
+}
+
+/* ── Small Mobile ── */
+@media (max-width: 380px) {
+    .text-container h1 { font-size: 15px; }
+    .icon-button span  { display: none; }
+}

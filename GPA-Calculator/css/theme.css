@@ -1,0 +1,122 @@
+/* ============================================================
+   theme.css — Design Tokens & Color System
+   GPA Calculator v2.0 | © 2021-2026 Ali Al-3rian
+   ============================================================ */
+
+/* ── Global Tokens (ثوابت مشتركة بين الوضعين) ── */
+:root {
+    /* Brand */
+    --primary:          #3b82f6;
+    --primary-hover:    #2563eb;
+    --primary-light:    rgba(59,130,246,0.12);
+
+    /* Semantic */
+    --success:          #22c55e;
+    --success-hover:    #16a34a;
+    --success-light:    rgba(34,197,94,0.12);
+
+    --warning:          #f59e0b;
+    --warning-hover:    #d97706;
+    --warning-light:    rgba(245,158,11,0.12);
+
+    --danger:           #ef4444;
+    --danger-hover:     #dc2626;
+    --danger-light:     rgba(239,68,68,0.12);
+
+    --info:             #06b6d4;
+    --info-hover:       #0891b2;
+    --info-light:       rgba(6,182,212,0.12);
+
+    /* Grade Colors */
+    --grade-A:          #22c55e;
+    --grade-B:          #3b82f6;
+    --grade-C:          #f59e0b;
+    --grade-D:          #f97316;
+    --grade-F:          #ef4444;
+
+    /* Shape */
+    --radius-xs:        4px;
+    --radius-sm:        8px;
+    --radius-md:        12px;
+    --radius-lg:        16px;
+    --radius-xl:        24px;
+
+    /* Motion */
+    --dur-fast:         150ms;
+    --dur-base:         250ms;
+    --dur-slow:         400ms;
+    --ease:             cubic-bezier(0.4,0,0.2,1);
+
+    /* Z-Index */
+    --z-dropdown:       500;
+    --z-header:         900;
+    --z-toast:          9999;
+}
+
+/* ── Light Mode ── */
+body.light-mode {
+    --bg:               #f0f4f8;
+    --bg-alt:           #e8edf2;
+    --surface:          #ffffff;
+    --surface-raised:   #f8fafc;
+    --surface-hover:    #f1f5f9;
+
+    --text:             #0f172a;
+    --text-secondary:   #475569;
+    --text-muted:       #94a3b8;
+
+    --border:           #e2e8f0;
+    --border-strong:    #cbd5e1;
+
+    --header-bg:        rgba(255,255,255,0.85);
+    --header-shadow:    0 1px 0 rgba(0,0,0,0.06);
+
+    --btn-bg:           #e2e8f0;
+    --btn-text:         #1e293b;
+    --btn-hover:        #cbd5e1;
+
+    --input-bg:         #ffffff;
+    --input-border:     #cbd5e1;
+
+    --shadow-sm:        0 1px 3px rgba(0,0,0,0.07), 0 1px 2px rgba(0,0,0,0.05);
+    --shadow-md:        0 4px 16px rgba(0,0,0,0.07), 0 2px 6px rgba(0,0,0,0.04);
+    --shadow-lg:        0 10px 36px rgba(0,0,0,0.09), 0 4px 12px rgba(0,0,0,0.05);
+    --shadow-card:      0 2px 8px rgba(0,0,0,0.06);
+
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+/* ── Dark Mode ── */
+body.dark-mode {
+    --bg:               #0d1117;
+    --bg-alt:           #161b22;
+    --surface:          #1c2333;
+    --surface-raised:   #21283b;
+    --surface-hover:    #29334d;
+
+    --text:             #e6edf3;
+    --text-secondary:   #8b949e;
+    --text-muted:       #6e7681;
+
+    --border:           #30363d;
+    --border-strong:    #444c56;
+
+    --header-bg:        rgba(13,17,23,0.85);
+    --header-shadow:    0 1px 0 rgba(255,255,255,0.05);
+
+    --btn-bg:           #21283b;
+    --btn-text:         #e6edf3;
+    --btn-hover:        #29334d;
+
+    --input-bg:         #1c2333;
+    --input-border:     #30363d;
+
+    --shadow-sm:        0 1px 3px rgba(0,0,0,0.3),  0 1px 2px rgba(0,0,0,0.2);
+    --shadow-md:        0 4px 16px rgba(0,0,0,0.3),  0 2px 6px rgba(0,0,0,0.2);
+    --shadow-lg:        0 10px 36px rgba(0,0,0,0.4), 0 4px 12px rgba(0,0,0,0.25);
+    --shadow-card:      0 2px 8px rgba(0,0,0,0.25);
+
+    background-color: var(--bg);
+    color: var(--text);
+}

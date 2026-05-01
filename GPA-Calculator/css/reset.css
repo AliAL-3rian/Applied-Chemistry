@@ -1,0 +1,22 @@
+/* ============================================================
+   reset.css — Base Reset
+   ============================================================ */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Almarai', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+    min-height: 100vh;
+    transition: background-color var(--dur-slow) var(--ease),
+                color var(--dur-slow) var(--ease);
+}
+
+ul, ol  { list-style: none; }
+a       { text-decoration: none; color: inherit; }
+button  { cursor: pointer; font-family: inherit; background: none; border: none; }
+input, select { font-family: inherit; font-size: inherit; outline: none; }
+table   { border-collapse: collapse; width: 100%; }
+img     { max-width: 100%; display: block; }
