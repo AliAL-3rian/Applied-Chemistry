@@ -11,8 +11,6 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
     transition: background-color var(--dur-base) var(--ease),
                 color var(--dur-base) var(--ease);
 }
@@ -55,10 +53,9 @@ header {
 
 /* ── Main Container ── */
 .container {
-    max-width: 1024px;
+    max-width: 800px;
     margin: 32px auto;
     padding: 0 16px;
-    /* flex: 1; */
 }
 
 /* ── Intro / Hero ── */
