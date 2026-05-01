@@ -1,0 +1,97 @@
+/* ============================================================
+   theme.css — Design Tokens (Light & Dark)
+   AIC Links v2.0 | © 2021-2026 Ali Al-3rian
+   ============================================================ */
+
+:root {
+    /* Brand */
+    --primary:        #0d6efd;
+    --primary-hover:  #084298;
+    --primary-light:  rgba(13,110,253,0.12);
+
+    /* Shape */
+    --radius-sm:  8px;
+    --radius-md:  12px;
+    --radius-lg:  16px;
+
+    /* Motion */
+    --dur-fast:   150ms;
+    --dur-base:   250ms;
+    --ease:       cubic-bezier(0.4,0,0.2,1);
+
+    /* Z-index */
+    --z-dropdown: 200;
+    --z-header:   100;
+}
+
+/* ── Light Mode ── */
+body.light-mode {
+    --bg:             #f8f9fa;
+    --bg-alt:         #f1f3f5;
+    --surface:        #ffffff;
+    --surface-hover:  #f0f4ff;
+
+    --text:           #0a0a0a;
+    --text-secondary: #444444;
+    --text-muted:     #666666;
+
+    --border:         #e0e0e0;
+
+    --header-bg:      #ffffff;
+    --header-shadow:  0 1px 0 rgba(0,0,0,0.08);
+
+    --btn-bg:         #e0e0e0;
+    --btn-text:       #000000;
+    --btn-hover:      #d0d0d0;
+
+    --card-bg:        #0d6efd;
+    --card-hover:     #084298;
+    --card-text:      #ffffff;
+    --card-icon:      rgba(255,255,255,0.85);
+
+    --dropdown-bg:    #ffffff;
+    --dropdown-text:  #000000;
+    --dropdown-hover: #eaeaea;
+
+    --shadow-card:    0 4px 16px rgba(13,110,253,0.18);
+    --shadow-header:  0 2px 8px rgba(0,0,0,0.08);
+
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+/* ── Dark Mode ── */
+body.dark-mode {
+    --bg:             #0f1117;
+    --bg-alt:         #161b27;
+    --surface:        #1a1f2e;
+    --surface-hover:  #212840;
+
+    --text:           #f0f0f0;
+    --text-secondary: #b0b0b0;
+    --text-muted:     #888888;
+
+    --border:         #2a3042;
+
+    --header-bg:      #1a1f2e;
+    --header-shadow:  0 1px 0 rgba(255,255,255,0.05);
+
+    --btn-bg:         #334155;
+    --btn-text:       #ffffff;
+    --btn-hover:      #475569;
+
+    --card-bg:        #1e3a6e;
+    --card-hover:     #1a3060;
+    --card-text:      #ffffff;
+    --card-icon:      rgba(255,255,255,0.8);
+
+    --dropdown-bg:    #1e293b;
+    --dropdown-text:  #ffffff;
+    --dropdown-hover: #334155;
+
+    --shadow-card:    0 4px 20px rgba(0,0,0,0.35);
+    --shadow-header:  0 2px 8px rgba(0,0,0,0.4);
+
+    background-color: var(--bg);
+    color: var(--text);
+}
