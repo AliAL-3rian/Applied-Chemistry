@@ -77,6 +77,6 @@ const SERVICES = [
     {
         key:  'gpaCalculator',
         icon: 'fas fa-calculator',
-        url:  './GPA-Calculator/GPA-Calculator.html',
+        url:  'https://alial-3rian.github.io/Applied-Chemistry/GPA.html',
     },
 ];
