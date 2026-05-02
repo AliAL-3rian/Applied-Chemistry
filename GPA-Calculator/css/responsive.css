@@ -1,49 +1,181 @@
 /* ============================================================
-   responsive.css — Breakpoints & Mobile Adjustments
+   responsive.css — Full Multi-Screen Support
+   Breakpoints: 1280 / 1024 / 768 / 640 / 480 / 360
    ============================================================ */
 
-/* ── Tablet ── */
-@media (max-width: 900px) {
-    .header-container { flex-wrap: wrap; gap: 10px; }
-    .text-container h1 { font-size: 18px; }
-    .banner-container { gap: 10px; }
+/* ── Large Desktop (1280+) — default, no overrides needed ── */
+
+/* ── Medium Desktop / Laptop (1024-1279) ── */
+@media (max-width: 1279px) {
+    .container       { max-width: 960px; }
+    .banner-box h3   { font-size: 20px; }
+    .text-container h1 { font-size: 19px; }
 }
 
-/* ── Mobile ── */
-@media (max-width: 640px) {
-    .header-container { flex-direction: column; align-items: flex-start; }
-    .header-actions   { align-self: flex-end; }
+/* ── Small Laptop / Large Tablet (768-1023) ── */
+@media (max-width: 1023px) {
+    .container { max-width: 100%; padding: 0 16px; }
+
+    .banner-container { gap: 10px; }
+    .banner-box       { min-width: 100px; }
+    .banner-box h3    { font-size: 18px; }
+
+    /* جدول المواد: تقليل padding */
+    .term-table th,
+    .term-table td    { padding: 9px 8px; font-size: 13px; }
+}
+
+/* ── Tablet (640-767) ── */
+@media (max-width: 767px) {
+    /* Header */
+    .header-container  { flex-wrap: wrap; gap: 10px; }
     .text-container h1 { font-size: 17px; }
     .text-container p  { font-size: 12px; }
+    .icon-button       { padding: 7px 11px; font-size: 12px; }
 
-    .container { padding: 0 12px; gap: 14px; }
+    /* Container */
+    .container { padding: 0 12px; gap: 14px; margin: 16px auto; }
 
-    .banner-bar  { padding: 16px; }
-    .banner-box  { min-width: 100%; }
-    .banner-container { flex-direction: column; }
+    /* Banner / Card */
+    .banner-bar { padding: 16px; }
+    .banner-container { flex-wrap: wrap; gap: 8px; }
+    .banner-box { flex: 1 1 calc(50% - 8px); min-width: unset; }
+    .banner-box h3 { font-size: 17px; }
 
-    .btn-container { flex-direction: column; align-items: stretch; }
+    /* Stats في الفصل: 2×2 grid */
+    .term .banner-container { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .term .banner-box { min-width: unset; }
+
+    /* Table */
+    .term-table th,
+    .term-table td { padding: 7px 6px; font-size: 12px; }
+
+    /* Shrink subject name column */
+    .term-table td:first-child { max-width: 120px; }
+
+    /* Actions */
+    .btn-container { flex-direction: column; align-items: stretch; gap: 10px; }
     .btn-container .btn { justify-content: center; }
 
-    .btn, .icon-button { padding: 9px 14px; font-size: 13px; }
+    /* Tips */
+    .tips-section { padding: 16px; }
+    .tips-section li { font-size: 13px; }
+}
 
-    .term-table { font-size: 12px; }
-    .term-table th, .term-table td { padding: 7px 6px; }
+/* ── Mobile (481-639) ── */
+@media (max-width: 639px) {
+    /* Header: stack vertically */
+    .header-container  { flex-direction: column; align-items: flex-start; }
+    .header-actions    { align-self: flex-end; gap: 6px; }
+    .text-container h1 { font-size: 16px; }
 
-    .form-control { font-size: 12px; padding: 7px 8px; }
+    /* Banners */
+    .banner-bar        { padding: 14px; border-radius: 10px; }
+    .banner-container  { grid-template-columns: 1fr 1fr; }
 
+    /* Previous cumulative: stack inputs */
+    .previous-cumulative > div { flex-direction: column !important; }
+    .banner-Inputbox input     { max-width: 100% !important; }
+
+    /* Table: horizontal scroll */
+    .term-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .term-table      { min-width: 560px; }
+
+    /* Buttons */
+    .btn, .icon-button { padding: 9px 12px; font-size: 12px; }
+    .delete-term span  { display: none; } /* أخفي نص الزر على الموبايل */
+
+    /* Term header */
+    .banner-Title h2 { font-size: 15px; }
+
+    /* Chart */
+    .chart-wrapper { height: 200px; }
+
+    /* Toast */
     .toast {
-        bottom: 16px;
+        bottom: 12px;
         inset-inline-end: 12px;
         inset-inline-start: 12px;
         max-width: unset;
+        font-size: 13px;
     }
-
-    .banner-Inputbox input { max-width: 100%; }
 }
 
-/* ── Small Mobile ── */
-@media (max-width: 380px) {
-    .text-container h1 { font-size: 15px; }
-    .icon-button span  { display: none; }
+/* ── Small Mobile (360-480) ── */
+@media (max-width: 480px) {
+    .header-container  { gap: 8px; }
+    .text-container h1 { font-size: 14px; }
+    .text-container p  { display: none; } /* أخفي الوصف لتوفير مساحة */
+
+    .logo-icon  { width: 32px; height: 32px; }
+    .title-icon { width: 32px; height: 32px; font-size: 16px; }
+
+    /* Header actions: icon only */
+    .icon-button #current-language,
+    .icon-button #current-grading-system { display: none; }
+
+    /* Cumulative banner: 1 col */
+    .cumulative-term .banner-container { grid-template-columns: 1fr 1fr; }
+
+    /* Term stats: 2 col */
+    .term .banner-container { grid-template-columns: 1fr 1fr; }
+
+    /* Table */
+    .term-table { min-width: 520px; font-size: 11px; }
+    .term-table th, .term-table td { padding: 6px 5px; }
+
+    /* Form controls */
+    .form-control { font-size: 12px; padding: 6px 7px; }
+
+    /* Buttons */
+    .btn { padding: 9px 12px; font-size: 12px; }
+    .btn i { font-size: 13px; }
+
+    /* Stats cards */
+    .banner-box h3 { font-size: 15px; }
+    .banner-box p  { font-size: 11px; }
+
+    /* Chart */
+    .chart-wrapper { height: 180px; }
+}
+
+/* ── Extra Small (< 360) ── */
+@media (max-width: 359px) {
+    .container { padding: 0 8px; }
+    .banner-bar { padding: 10px; }
+    .term-table { min-width: 480px; }
+
+    .banner-container,
+    .term .banner-container,
+    .cumulative-term .banner-container { grid-template-columns: 1fr; }
+
+    .btn-container .btn { font-size: 11px; padding: 8px 10px; }
+}
+
+/* ── Print ── */
+@media print {
+    .sticky-header,
+    .btn-container,
+    .tips-section,
+    #statistics-section,
+    #comparison-container { display: none !important; }
+
+    .banner-bar { box-shadow: none; border: 1px solid #ccc; break-inside: avoid; }
+    body { background: #fff !important; color: #000 !important; }
+}
+
+/* ── Touch Devices: remove hover effects ── */
+@media (hover: none) {
+    .banner-bar:hover  { transform: none; box-shadow: var(--shadow-card); }
+    .btn:hover         { transform: none; }
+    .icon-button:hover { transform: none; }
+}
+
+/* ── Reduced Motion ── */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration:    0.01ms !important;
+        transition-duration:   0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
 }
