@@ -132,7 +132,7 @@ const UI = {
             </div>
 
             <!-- جدول المواد -->
-            <div style="overflow-x:auto">
+            <div class="term-table-wrap">
                 <table class="term-table">
                     <thead>
                         <tr>
